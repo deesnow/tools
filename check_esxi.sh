@@ -6,16 +6,15 @@ function funk() {
 	if ping -c1 -W1 $line
 	
 	then
-	ssh -n  -oStrictHostKeyChecking=no root@$line 'esxcli system version get && esxcli network nic get -n vmnic4 && esxcli network nic get -n vmnic5 && esxcfg-advcfg -g /DataMover/HardwareAcceleratedMove && esxcfg-advcfg -g /DataMover/HardwareAcceleratedInit && esxcfg-advcfg -g /VMFS3/HardwareAcceleratedLocking' >> output.txt
-	echo "-------------------------------------" >> output.txt
-	echo "                                     " >> output.txt
+		ssh -n  -oStrictHostKeyChecking=no root@$line 'esxcli system version get && esxcli network nic get -n vmnic4 && esxcli network nic get -n vmnic5 && esxcfg-advcfg -g /DataMover/HardwareAcceleratedMove && esxcfg-advcfg -g /DataMover/HardwareAcceleratedInit && esxcfg-advcfg -g /VMFS3/HardwareAcceleratedLocking' >> output.txt
+		echo "-------------------------------------" >> output.txt
+		echo "                                     " >> output.txt
 	
 	else
 	echo "***** HOST $line is unreachable *****" >> output.txt
 	echo "                                     " >> output.txt
-	
-	
-}
+	fi
+	}
 
 
 
